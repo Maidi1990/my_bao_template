@@ -1,0 +1,2 @@
+include setup.py README.txt
+recursive-include atomisator *.txt *.py
