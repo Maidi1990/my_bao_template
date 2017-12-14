@@ -1,0 +1,41 @@
+import codecs
+import os
+# import sys
+ 
+try:
+    from setuptools import setup, find_packages
+except:
+    from distutils.core import setup
+
+ 
+# def read(fname):
+#     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
+ 
+setup(
+    name = ${repr($project)},
+    version = ${repr($version) or '0.0'},
+    description = ${repr($description) or $empty},
+    long_description = 'LONG_DESCRIPTION',
+    classifiers = [
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python',
+        'Intended Audience :: Developers',
+        'Operating System :: OS Independent',
+    ],
+    keywords = ${repr($keywords) or $empty},
+    author = ${repr($author) or $empty},
+    author_email = ${repr($author_email) or $empty},
+    url = ${repr($url) or $empty},
+    license = ${repr($license_name) or $empty},
+    packages = find_packages(exclude=['ez_setup']),
+    namespace_packages = [${repr($namespace_package)}],
+    include_package_data=True,
+    # zip_safe=True,
+    install_requires=[
+        'pysqlite', 
+        'SQLAlchemy'],
+    test_suite = 'nose.collector',
+    test_requires = ['Nose'],
+    entry_points = """
+    """,
+)

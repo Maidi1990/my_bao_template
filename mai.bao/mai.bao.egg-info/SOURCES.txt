@@ -1,0 +1,14 @@
+MANIFEST.in
+README.txt
+setup.py
+mai/__init__.py
+mai.bao.egg-info/PKG-INFO
+mai.bao.egg-info/SOURCES.txt
+mai.bao.egg-info/dependency_links.txt
+mai.bao.egg-info/entry_points.txt
+mai.bao.egg-info/namespace_packages.txt
+mai.bao.egg-info/not-zip-safe
+mai.bao.egg-info/requires.txt
+mai.bao.egg-info/top_level.txt
+mai/bao/__init__.py
+mai/bao/package.py
