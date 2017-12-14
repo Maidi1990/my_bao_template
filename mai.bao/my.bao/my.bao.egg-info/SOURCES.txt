@@ -1,0 +1,10 @@
+setup.py
+my/__init__.py
+my.bao.egg-info/PKG-INFO
+my.bao.egg-info/SOURCES.txt
+my.bao.egg-info/dependency_links.txt
+my.bao.egg-info/entry_points.txt
+my.bao.egg-info/namespace_packages.txt
+my.bao.egg-info/requires.txt
+my.bao.egg-info/top_level.txt
+my/bao/__init__.py
