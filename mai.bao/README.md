@@ -2,7 +2,7 @@
 
 ## 概论：要创建 *包模板* ，在我看来，要做两件事：创建包，然后创建模板。这句话很难理解？好吧，我的意思是现在要做的是先按照创建一个包的方法来做事。
 
-1.  第一件事：创建一个包的文件结构的命令如下：
+### 1.第一件事：创建一个包的文件结构的命令如下：
 
 ```    
     $ mkdir -pv ./mai.bao/mai/bao
@@ -22,8 +22,10 @@
     ./setup.py
 ```
 - 补充：按照创建一个包的法则，./setup.py应该填写元数据代码，又在./mai/__init__.py填写命名空间声明代码。如果再规范些，比如加./README.txt，又或者加./mai/bao/docs/和./mai/bao/tests/什么的，也可以。鉴于我的目标是要总结创建 **包模板** 的方法，所以对于这些创建包的具体操作就略过了。
-2.  让包变成包模板 。
-2.1 修改mai.bao/setup.py:
+
+### 2.让包变成包模板
+
+#### 2.1 修改mai.bao/setup.py:
 1) 让install_requires中有 PasterScript 和 Cheetah
 2) 让创建入口点entry_points:
 ```
@@ -31,9 +33,9 @@
     templates_name = mai.bao.package:Package
     ...
 ```
-2.2 创建package.py文件(亦即module)，此module即入口点指定的mai.bao.package。可以知道，这个文件提供了一个名为Package的类，此类继承自paster.script.templates.Template。
+#### 2.2 创建package.py文件(亦即module)，此module即入口点指定的mai.bao.package。可以知道，这个文件提供了一个名为Package的类，此类继承自paster.script.templates.Template。
 *(注：上边install_requires指定了依赖PasterScript，如果安装了，模块paster.script就可以用了)。*
-2.3 提供 **模板** ，是的，划重点！ **模板** 真正地出场了，前边所做的，只是 **创建一个会生成模板的包** 而已，现在是 **包模板 = 包 + 模板** 重要时刻。
+#### 2.3 提供 **模板** ，是的，划重点！ **模板** 真正地出场了，前边所做的，只是 **创建一个会生成模板的包** 而已，现在是 **包模板 = 包 + 模板** 重要时刻。
 1) 我们在mai.bao/mai/bao下新建一个文件用来专门放 **模板**:
 ```
     $ cd mai.bao/mai/bao
@@ -161,7 +163,7 @@ description = ${repr($description)}
     2)package.py中没有 var('author_email', 'Author email'), 却在setup.py_tmpl中有 author_email = ${repr($author_email) or $empty},
     当然这个错误应该会很少见，毕竟我是懒直接拷贝代码导致的错误；
 ```
-3. 做完上面所有的操作，现在文件结构如下：
+### 3.做完上面所有的操作，现在文件结构如下：
 ```
     $find ./mai.bao
     ./mai.bao/
@@ -180,7 +182,7 @@ description = ${repr($description)}
     ./mai.bao/README.txt
     ./mai.bao/setup.py
 ```
-4. 用起来:
+### 4.用起来:
 包模板创建完后，用起来也很简单，步骤如下：
 ```
     1) 首先进入./mai.bao目录下，确认setup.py在其中
