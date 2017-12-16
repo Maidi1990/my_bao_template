@@ -1,5 +1,0 @@
-
-    # -*- Entry points: -*-
-    [paste.paster_create_template]
-    mao_bao = mai.bao.package:Package
-    
